@@ -351,3 +351,16 @@ button:focus-visible {
 .elenco-articoli h2 { font-size: 1.4rem; margin: 0 0 .5rem; }
 .elenco-articoli h2 a { color: var(--inchiostro); text-decoration: none; }
 .elenco-articoli h2 a:hover { text-decoration: underline; }
+
+/* Finestrella personale */
+.ricordo {
+  margin: 2rem 0;
+  padding: 1.25rem 1.5rem;
+  background: var(--abisso);
+  color: var(--schiuma);
+  border-left: 4px solid var(--boa);
+}
+.ricordo blockquote { margin: 0; font-family: var(--serif); font-style: italic; font-size: 1.1rem; line-height: 1.55; }
+.ricordo blockquote p { margin: 0 0 .8em; }
+.ricordo blockquote p:last-child { margin-bottom: 0; }
+.ricordo figcaption { margin-top: .9rem; font-size: .85rem; color: var(--bassofondo); }
