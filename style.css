@@ -117,15 +117,13 @@ button:focus-visible {
   margin: 0 0 2rem;
 }
 .ritratto {
+  display: block;
+  width: 100%;
+  height: auto;
   aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 50% 20%;
   background: var(--bassofondo);
-  border: 1px dashed var(--mezz-acqua);
-  display: grid;
-  place-items: center;
-  text-align: center;
-  padding: 1rem;
-  color: var(--mezz-acqua);
-  font-size: .9rem;
 }
 
 /* La linea dell'acqua: unico elemento decorativo del sito */
