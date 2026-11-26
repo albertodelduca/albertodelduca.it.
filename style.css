@@ -1,0 +1,317 @@
+/* Alberto Del Duca — foglio di stile
+   Idea guida: la pagina scende in profondità, come un'immersione.
+   Ogni fascia è un po' più profonda della precedente. */
+
+:root {
+  --aria: #eef3f4;      /* superficie */
+  --bassofondo: #d6e5e8;
+  --mezz-acqua: #2a6273;
+  --abisso: #0f2c3b;
+  --inchiostro: #14303e; /* testo su chiaro */
+  --grigio: #4a5f69;
+  --schiuma: #ffffff;
+  --boa: #f2c230;       /* un solo accento: il segnale della boa */
+
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --misura: 36rem;
+  --largo: 64rem;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--inchiostro);
+  background: var(--aria);
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; text-underline-offset: 0.18em; }
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--boa);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.salta {
+  position: absolute;
+  left: -999px;
+}
+.salta:focus { left: 1rem; top: 1rem; background: var(--schiuma); padding: .5rem 1rem; z-index: 10; }
+
+.contenitore {
+  width: min(100% - 2.5rem, var(--largo));
+  margin-inline: auto;
+}
+
+/* Intestazione */
+.testata {
+  padding-block: 1.25rem;
+}
+.testata .contenitore {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .75rem 2rem;
+}
+.firma-nome {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  text-decoration: none;
+  line-height: 1.2;
+}
+.firma-nome small {
+  display: block;
+  font-family: var(--sans);
+  font-size: .85rem;
+  color: var(--grigio);
+}
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25rem 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: .95rem;
+}
+.menu a { text-decoration: none; }
+.menu a:hover, .menu a[aria-current="page"] { text-decoration: underline; }
+.lingue { color: var(--grigio); }
+.lingue > * + * { margin-left: .35em; }
+.lingue > * + *::before { content: "/"; margin-right: .35em; color: var(--grigio); }
+
+/* Apertura: la superficie */
+.apertura {
+  padding-block: clamp(2.5rem, 7vw, 5rem) 0;
+}
+.apertura .contenitore {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: end;
+}
+.apertura h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.1rem, 5vw, 3.6rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  margin: 0 0 1.25rem;
+  max-width: 15ch;
+}
+.apertura .presentazione {
+  max-width: var(--misura);
+  color: var(--grigio);
+  margin: 0 0 2rem;
+}
+.ritratto {
+  aspect-ratio: 4 / 5;
+  background: var(--bassofondo);
+  border: 1px dashed var(--mezz-acqua);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 1rem;
+  color: var(--mezz-acqua);
+  font-size: .9rem;
+}
+
+/* La linea dell'acqua: unico elemento decorativo del sito */
+.linea-acqua {
+  display: block;
+  width: 100%;
+  height: 48px;
+  margin-top: 2.5rem;
+  color: var(--abisso);
+}
+
+.sotto-superficie {
+  background: var(--abisso);
+  color: var(--schiuma);
+  padding-block: 2rem 3.5rem;
+}
+.motto {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.6rem, 3.6vw, 2.4rem);
+  line-height: 1.2;
+  margin: 0 0 1.75rem;
+}
+
+/* Pulsanti */
+.azioni {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem 1rem;
+  align-items: center;
+}
+.pulsante {
+  display: inline-block;
+  padding: .8rem 1.3rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 3px;
+  line-height: 1.2;
+}
+.pulsante-boa {
+  background: var(--boa);
+  color: var(--abisso);
+}
+.pulsante-boa:hover { background: #ffd34d; }
+.pulsante-linea {
+  border: 1.5px solid currentColor;
+}
+.pulsante-linea:hover { background: rgba(255,255,255,.08); }
+.chiaro .pulsante-linea:hover { background: rgba(15,44,59,.06); }
+.nota-contatto {
+  font-size: .95rem;
+  opacity: .85;
+}
+
+/* Fasce di profondità */
+.fascia { padding-block: clamp(3rem, 8vw, 5.5rem); }
+.fascia h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+  line-height: 1.15;
+  margin: 0 0 1.5rem;
+  max-width: 24ch;
+}
+.fascia p { max-width: var(--misura); }
+
+.f-1 { background: var(--mezz-acqua); color: var(--schiuma); }
+.f-2 { background: #1d4a5a; color: var(--schiuma); }
+.f-3 { background: #163c4b; color: var(--schiuma); }
+.f-4 { background: var(--abisso); color: var(--schiuma); }
+.f-chiara { background: var(--aria); color: var(--inchiostro); }
+
+/* Le porte d'ingresso: elenco, non schede */
+.porte {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 2rem 3rem;
+}
+.porte li {
+  border-top: 1px solid rgba(255,255,255,.35);
+  padding-top: 1rem;
+}
+.porte h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.3rem;
+  margin: 0 0 .4rem;
+}
+.porte p { margin: 0; opacity: .92; }
+
+.dettagli {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.75rem 3rem;
+  margin: 0;
+}
+.dettagli dt {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  margin-bottom: .3rem;
+}
+.dettagli dd { margin: 0; opacity: .92; }
+
+.da-definire {
+  background: rgba(242,194,48,.25);
+  padding: 0 .25em;
+  border-radius: 2px;
+}
+
+/* Pagine interne */
+.pagina {
+  padding-block: clamp(2.5rem, 6vw, 4rem) clamp(3rem, 7vw, 5rem);
+}
+.pagina h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  line-height: 1.1;
+  margin: 0 0 1.5rem;
+}
+.pagina h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin: 2.5rem 0 .75rem;
+}
+.testo-lungo {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  line-height: 1.7;
+  max-width: 34rem;
+}
+.testo-lungo p { margin: 0 0 1.2em; }
+.colonne-pagina {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 18rem);
+  gap: 3rem;
+  align-items: start;
+}
+.elenco-esperienza {
+  padding-left: 1.1rem;
+  max-width: var(--misura);
+}
+.elenco-esperienza li { margin-bottom: .5rem; }
+
+.canali {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1.5rem;
+  max-width: var(--misura);
+}
+.canali h2 { margin-top: 0; }
+.riquadro-nota {
+  border-left: 3px solid var(--mezz-acqua);
+  padding: .25rem 0 .25rem 1rem;
+  color: var(--grigio);
+  max-width: var(--misura);
+}
+
+/* Piede */
+.piede {
+  background: var(--abisso);
+  color: #c9d9de;
+  font-size: .9rem;
+  padding-block: 2.5rem;
+  border-top: 1px solid rgba(255,255,255,.12);
+}
+.piede .contenitore {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1.5rem 3rem;
+}
+.piede p { margin: 0 0 .4rem; }
+.piede strong { color: var(--schiuma); font-weight: 600; }
+
+@media (max-width: 44rem) {
+  .apertura .contenitore,
+  .colonne-pagina { grid-template-columns: 1fr; }
+  .ritratto { max-width: 16rem; order: -1; aspect-ratio: 1 / 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; }
+}
