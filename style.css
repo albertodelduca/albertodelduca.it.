@@ -324,3 +324,30 @@ button:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto !important; }
 }
+
+/* Articoli */
+.articolo { max-width: 42rem; }
+.rubrica { font-size: .9rem; color: var(--grigio); margin: 0 0 .6rem; }
+.rubrica a { color: inherit; }
+.occhiello {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: var(--inchiostro);
+  margin: 0 0 1rem;
+}
+.meta-articolo { font-size: .9rem; color: var(--grigio); margin: 0 0 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--bassofondo); }
+.riquadro-letture, .autore {
+  border-top: 1px solid var(--mezz-acqua);
+  padding-top: 1.25rem;
+  margin-top: 2.5rem;
+}
+.riquadro-letture h2 { font-size: 1.2rem; margin-top: 0; }
+.riquadro-letture ul { padding-left: 1.1rem; }
+.riquadro-letture li { margin-bottom: .5rem; }
+.autore p { font-size: .95rem; color: var(--grigio); }
+.elenco-articoli { list-style: none; padding: 0; margin: 2rem 0 0; }
+.elenco-articoli li { border-top: 1px solid var(--bassofondo); padding: 1.5rem 0; }
+.elenco-articoli h2 { font-size: 1.4rem; margin: 0 0 .5rem; }
+.elenco-articoli h2 a { color: var(--inchiostro); text-decoration: none; }
+.elenco-articoli h2 a:hover { text-decoration: underline; }
