@@ -140,6 +140,17 @@ button:focus-visible {
   color: var(--schiuma);
   padding-block: 2rem 3.5rem;
 }
+.epigrafe {
+  font-family: var(--serif);
+  font-size: 1rem;
+  letter-spacing: .02em;
+  color: var(--bassofondo);
+  margin: 0 0 .6rem;
+  opacity: .85;
+}
+.epigrafe [lang="la"] { font-style: italic; }
+.epigrafe-fonte { font-size: .85em; opacity: .8; }
+
 .motto {
   font-family: var(--serif);
   font-style: italic;
