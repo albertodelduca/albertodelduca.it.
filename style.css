@@ -374,3 +374,7 @@ button:focus-visible {
 .leggi-anche li { margin-bottom: .4rem; }
 .testo-lungo ol { padding-left: 1.3rem; }
 .testo-lungo ol li { margin-bottom: .4rem; }
+
+/* Foto verticale 2:3 in "Chi sono": non ritagliare */
+.ritratto.foto-chi-sono { aspect-ratio: 2 / 3; object-position: 50% 50%; }
+@media (max-width: 44rem) { .ritratto.foto-chi-sono { aspect-ratio: 2 / 3; max-width: 14rem; } }
